@@ -6,7 +6,7 @@ plugins {
     kotlin("plugin.jpa") version "1.9.25"
 }
 
-group = "org.example"
+group = "com.example"
 version = "0.0.1-SNAPSHOT"
 
 java {
@@ -23,9 +23,25 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+    
+    // JWT
+    implementation("io.jsonwebtoken:jjwt-api:0.12.3")
+    runtimeOnly("io.jsonwebtoken:jjwt-impl:0.12.3")
+    runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.12.3")
+    
+    // Swagger/OpenAPI
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
+    
+    // Database
     runtimeOnly("org.postgresql:postgresql")
+    runtimeOnly("com.h2database:h2")
+    runtimeOnly("org.flywaydb:flyway-core:9.22.3")
+
+    
+    // Test dependencies
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("org.springframework.security:spring-security-test")
@@ -46,4 +62,8 @@ allOpen {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+springBoot {
+    mainClass.set("com.example.doctorbooking.DoctorBookingApplicationKt")
 }
