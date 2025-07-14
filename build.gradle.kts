@@ -37,8 +37,10 @@ dependencies {
     
     // Database
     runtimeOnly("org.postgresql:postgresql")
-    runtimeOnly("com.h2database:h2")
-    runtimeOnly("org.flywaydb:flyway-core:9.22.3")
+//    runtimeOnly("com.h2database:h2")
+//    runtimeOnly("org.flywaydb:flyway-core:10.10.0")
+    implementation("org.flywaydb:flyway-core:10.10.0")
+    implementation("org.flywaydb:flyway-database-postgresql:10.10.0")
 
     
     // Test dependencies

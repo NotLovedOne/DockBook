@@ -1,12 +1,15 @@
+# IDE и VCS
 .git
 .gitignore
 .idea
 *.iml
+
+# Build artifacts
 build/
 .gradle/
-!gradle/wrapper/gradle-wrapper.jar
-!gradle/wrapper/gradle-wrapper.properties
+!gradle/wrapper/
 !gradlew
 !gradlew.bat
-README.md
-HELP.md 
+
+# Логи
+*.log
